@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1794387292904,
+      "tag": "0000_nexora_profiles_conversations_and_generations",
+      "breakpoints": true
+    }
+  ]
 }
