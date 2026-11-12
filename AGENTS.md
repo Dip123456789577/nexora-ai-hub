@@ -31,3 +31,7 @@ use the editor.
 
 ## Project architecture
 - Keep AI provider calls and credentials in TanStack Start server boundaries; use authenticated server functions for private tool actions and a dedicated server route for streaming chat so browser code never receives provider secrets.
+
+
+## NEXORA application structure
+- Keep signed-in workspace pages under the integration-managed `_authenticated` route group and keep AI calls behind authenticated TanStack server boundaries, because the workspace and saved results are private.
