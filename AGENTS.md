@@ -35,3 +35,4 @@ use the editor.
 
 ## NEXORA application structure
 - Keep signed-in workspace pages under the integration-managed `_authenticated` route group and keep AI calls behind authenticated TanStack server boundaries, because the workspace and saved results are private.
+- Implement decorative text shimmer with CSS keyframes rather than Motion components, avoiding dynamic animation-component typing issues during the server-rendered build.

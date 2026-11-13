@@ -153,3 +153,30 @@
     color: var(--color-foreground);
   }
 }
+
+.nexora-text-shimmer {
+  background-image:
+    linear-gradient(
+      90deg,
+      transparent calc(50% - var(--shimmer-spread)),
+      var(--color-background),
+      transparent calc(50% + var(--shimmer-spread))
+    ),
+    linear-gradient(var(--color-muted-foreground), var(--color-muted-foreground));
+  background-position: 100% center;
+  background-repeat: no-repeat, padding-box;
+  background-size: 250% 100%, auto;
+  animation: nexora-text-shimmer var(--shimmer-duration, 2s) linear infinite;
+}
+
+@keyframes nexora-text-shimmer {
+  to {
+    background-position: 0% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nexora-text-shimmer {
+    animation: none;
+  }
+}
