@@ -1,5 +1,15 @@
 import { useState } from "react";
-import { Check, Copy, Download, FileText, Sparkles, RefreshCw, BookmarkCheck } from "lucide-react";
+import {
+  Check,
+  Copy,
+  Download,
+  FileText,
+  Sparkles,
+  RefreshCw,
+  BookmarkCheck,
+  Terminal,
+  Shield,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -100,29 +110,31 @@ export function ResultPanel({
   };
 
   return (
-    <div className="flex flex-col rounded-2xl border border-border/60 bg-card/60 backdrop-blur-xl shadow-xl overflow-hidden transition-all duration-300">
-      {/* Top Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/50 bg-surface-container/60 px-5 py-3.5">
+    <div className="flex flex-col rounded-2xl border border-outline-variant/30 bg-surface-container-lowest backdrop-blur-xl shadow-2xl overflow-hidden transition-all duration-300">
+      {/* Top Header (Stitch 4 HUD bar) */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-outline-variant/25 bg-surface-container-low px-5 py-3.5">
         <div className="flex items-center gap-2.5">
-          <div className="flex size-7 items-center justify-center rounded-lg bg-primary/20 text-primary">
-            <Sparkles className="size-4" />
+          <div className="flex size-7 items-center justify-center rounded-lg bg-surface-container-high border border-primary/30 text-primary shadow-[0_0_8px_rgba(208,188,255,0.2)]">
+            <Sparkles className="size-4 text-secondary" />
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-foreground">{title}</h3>
-            {subtitle && <p className="text-xs text-muted-foreground">{subtitle}</p>}
+            <h3 className="text-sm font-bold text-on-surface">{title}</h3>
+            {subtitle && <p className="text-xs text-on-surface-variant font-mono">{subtitle}</p>}
           </div>
         </div>
 
         {/* Action Buttons */}
         <div className="flex items-center gap-1.5 flex-wrap">
           {metadata && (
-            <div className="hidden md:flex items-center gap-2 mr-2 text-[11px] font-mono text-muted-foreground">
+            <div className="hidden md:flex items-center gap-2 mr-2 text-[11px] font-mono text-outline">
               {metadata.marks && (
-                <span className="rounded-md bg-secondary/15 text-secondary border border-secondary/30 px-2 py-0.5 font-semibold">
+                <span className="rounded-md bg-surface-container text-secondary border border-secondary/30 px-2 py-0.5 font-semibold">
                   {metadata.marks} Marks Rubric
                 </span>
               )}
-              {metadata.durationMs && <span>{metadata.durationMs}ms</span>}
+              {metadata.durationMs && (
+                <span className="text-on-surface-variant">{metadata.durationMs}ms</span>
+              )}
             </div>
           )}
 
@@ -130,9 +142,9 @@ export function ResultPanel({
             variant="outline"
             size="sm"
             onClick={handleCopy}
-            className="h-8 gap-1.5 border-border/60 text-xs font-medium hover:border-primary/50"
+            className="h-8 gap-1.5 border-outline-variant/40 bg-surface-container text-on-surface hover:bg-surface-container-high hover:border-primary/50 text-xs font-mono"
           >
-            {copied ? <Check className="size-3.5 text-green-400" /> : <Copy className="size-3.5" />}
+            {copied ? <Check className="size-3.5 text-secondary" /> : <Copy className="size-3.5" />}
             <span>{copied ? "Copied" : "Copy MD"}</span>
           </Button>
 
@@ -140,9 +152,9 @@ export function ResultPanel({
             variant="outline"
             size="sm"
             onClick={() => handleDownload("md")}
-            className="h-8 gap-1.5 border-border/60 text-xs font-medium hover:border-primary/50"
+            className="h-8 gap-1.5 border-outline-variant/40 bg-surface-container text-on-surface hover:bg-surface-container-high hover:border-primary/50 text-xs font-mono"
           >
-            <Download className="size-3.5" />
+            <Download className="size-3.5 text-secondary" />
             <span>.MD</span>
           </Button>
 
@@ -150,7 +162,7 @@ export function ResultPanel({
             variant="outline"
             size="sm"
             onClick={handlePrint}
-            className="h-8 gap-1.5 border-border/60 text-xs font-medium hover:border-primary/50"
+            className="h-8 gap-1.5 border-outline-variant/40 bg-surface-container text-on-surface hover:bg-surface-container-high hover:border-primary/50 text-xs font-mono"
           >
             <FileText className="size-3.5" />
             <span>PDF</span>
@@ -162,7 +174,7 @@ export function ResultPanel({
               size="sm"
               disabled={isLoading}
               onClick={onRegenerate}
-              className="h-8 gap-1.5 text-xs text-muted-foreground hover:text-foreground"
+              className="h-8 gap-1.5 text-xs text-outline hover:text-on-surface"
             >
               <RefreshCw className={`size-3.5 ${isLoading ? "animate-spin" : ""}`} />
               <span className="hidden sm:inline">Regenerate</span>
@@ -172,18 +184,18 @@ export function ResultPanel({
       </div>
 
       {/* Content Area */}
-      <div className="relative p-6 font-sans text-sm leading-relaxed text-foreground/95 select-text">
-        <div className="prose prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-h2:text-lg prose-h2:border-b prose-h2:border-border/30 prose-h2:pb-2 prose-h2:mt-6 prose-p:my-3 prose-ul:my-2 prose-li:my-1 prose-pre:bg-surface-container-lowest prose-pre:border prose-pre:border-border/60 prose-pre:rounded-xl">
+      <div className="relative p-6 font-sans text-sm leading-relaxed text-on-surface select-text bg-surface-container-lowest">
+        <div className="prose prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-on-surface prose-h2:text-base prose-h2:border-b prose-h2:border-outline-variant/25 prose-h2:pb-2 prose-h2:mt-6 prose-p:my-3 prose-p:text-on-surface-variant prose-ul:my-2 prose-li:my-1 prose-pre:bg-surface-container-low prose-pre:border prose-pre:border-outline-variant/30 prose-pre:rounded-xl">
           <div className="whitespace-pre-wrap font-sans">{content}</div>
         </div>
 
-        {/* Saved to Cloud History Badge */}
-        <div className="mt-8 pt-4 border-t border-border/30 flex items-center justify-between text-xs text-muted-foreground">
-          <div className="flex items-center gap-1.5 text-emerald-400">
-            <BookmarkCheck className="size-4" />
-            <span>Saved to Cloud Workspace History</span>
+        {/* Saved to Cloud History Badge (Stitch 4 HUD bottom) */}
+        <div className="mt-8 pt-4 border-t border-outline-variant/25 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-outline">
+          <div className="flex items-center gap-2 text-secondary">
+            <span className="size-2 rounded-full bg-secondary shadow-[0_0_8px_#4cd7f6]" />
+            <span>Persisted to Cloud Workspace History</span>
           </div>
-          <span className="text-[11px] font-mono">NEXORA Architecture v4.2</span>
+          <span className="text-[11px] text-outline">NEXORA Engine v2.4 • H100 TensorRT</span>
         </div>
       </div>
     </div>

@@ -211,6 +211,27 @@ function ExamAnswerWriter() {
         />
       )}
 
+      {/* Subheader & Cluster Telemetry Strip (Stitch 4 Spec) */}
+      <div className="flex flex-wrap items-center justify-between px-4 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface-variant font-mono text-xs border border-outline-variant/30 shadow-sm mb-4">
+        <div className="flex items-center gap-6 flex-wrap">
+          <div className="flex items-center gap-2 text-secondary">
+            <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#4cd7f6] animate-pulse" />
+            <span>Rubric Engine: Academic Model Solver v4.2 Active</span>
+          </div>
+          <div className="flex items-center gap-1.5 text-outline">
+            <span>Model: Gemini 2.5 Flash</span>
+          </div>
+          <div className="flex items-center gap-1.5 text-outline">
+            <span>Latency: ~1.8s</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-outline">
+          <span className="text-primary font-medium">2 to 20 Marks Scoring</span>
+          <span>•</span>
+          <span className="text-secondary font-mono">Pedagogical Framework</span>
+        </div>
+      </div>
+
       {/* Main Workspace Grid: Controls & Input */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column: Form & Rubric Controls */}
@@ -367,23 +388,24 @@ function ExamAnswerWriter() {
                 Clear
               </Button>
 
-              <Button
+              <button
+                type="button"
                 onClick={handleGenerate}
                 disabled={isLoading || !question.trim()}
-                className="gap-2 bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold shadow-md shadow-primary/20 h-10 px-6"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary-container via-purple-600 to-inverse-primary px-6 py-2.5 text-xs font-bold text-white shadow-[0_0_20px_rgba(160,120,255,0.35)] hover:shadow-[0_0_28px_rgba(160,120,255,0.5)] transition-all disabled:opacity-50"
               >
                 {isLoading ? (
                   <>
-                    <Loader2 className="size-4 animate-spin" />
+                    <Loader2 className="size-4 animate-spin text-secondary" />
                     <span>Synthesizing Answer...</span>
                   </>
                 ) : (
                   <>
-                    <Send className="size-4" />
+                    <Send className="size-4 text-secondary" />
                     <span>Generate Model Answer</span>
                   </>
                 )}
-              </Button>
+              </button>
             </div>
           </div>
 

@@ -135,31 +135,31 @@ function LoginPage() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full h-10 gap-2 bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold shadow-md shadow-primary/20"
+              className="w-full h-10 gap-2 bg-gradient-to-r from-primary-container via-purple-600 to-inverse-primary text-white font-bold shadow-[0_0_20px_rgba(160,120,255,0.35)] hover:shadow-[0_0_28px_rgba(160,120,255,0.5)] transition-all"
             >
               {isLoading ? (
                 <>
-                  <Loader2 className="size-4 animate-spin" />
+                  <Loader2 className="size-4 animate-spin text-secondary" />
                   <span>Verifying credentials...</span>
                 </>
               ) : (
                 <>
-                  <span>{isSignUp ? "Create Workspace Account" : "Sign In"}</span>
-                  <ArrowRight className="size-4" />
+                  <span>{isSignUp ? "Create Workspace Account" : "Sign In to NEXORA"}</span>
+                  <ArrowRight className="size-4 text-secondary" />
                 </>
               )}
             </Button>
           </form>
 
           {/* Guest Mode Direct Access */}
-          <div className="relative border-t border-border/40 pt-4 text-center">
-            <span className="absolute top-0 -translate-y-1/2 bg-card px-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground left-1/2 -translate-x-1/2">
+          <div className="relative border-t border-outline-variant/30 pt-4 text-center">
+            <span className="absolute top-0 -translate-y-1/2 bg-surface-container-low px-2 text-[10px] font-mono uppercase tracking-wider text-outline left-1/2 -translate-x-1/2">
               or instant evaluation
             </span>
             <Button
               variant="outline"
               onClick={handleGuestAccess}
-              className="w-full h-10 gap-2 border-border/60 hover:border-secondary hover:text-secondary text-xs font-medium"
+              className="w-full h-10 gap-2 border-secondary/40 bg-surface-container-low hover:bg-surface-container text-secondary text-xs font-semibold shadow-[0_0_12px_rgba(76,215,246,0.15)] transition-all"
             >
               <UserCheck className="size-4 text-secondary" />
               <span>Launch Workspace as Guest</span>

@@ -1,32 +1,14 @@
 /*
  * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
- * - Keep every @import in this top block, above @theme and the rest of the file. Install an
- *   npm package before @importing its CSS. Never @import a remote URL (web fonts, CDN CSS): the
- *   build resolves @import from the filesystem. Load those with a <link> in the head() of
- *   src/routes/__root.tsx and name the family in a --font-* token in @theme inline below.
  */
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
- *
- * The design lives in this file: oklch color tokens on the shadcn variables
- * (--background, --foreground, --primary, --secondary, --muted, --accent, ...) plus
- * new tokens as needed, font tokens, and custom styles and animations.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * NEXORA AI PRO MAX — Synthetic Obsidian & Radiant Electric Violet/Cyan Design System
+ * (Stitch Screen 4 Spec)
  */
 
 @theme inline {
@@ -37,6 +19,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -56,12 +39,27 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+
+  /* Synthetic Obsidian Surface Levels */
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+
+  /* Container Variants */
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -72,75 +70,66 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-}
-
+:root,
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --radius: 0.75rem;
+
+  /* Deep Synthetic Obsidian & Cybernetic Accents */
+  --background: #0f131c;
+  --foreground: #dfe2ef;
+  --card: #181b25;
+  --card-foreground: #dfe2ef;
+  --popover: #141720;
+  --popover-foreground: #dfe2ef;
+
+  /* Radiant Electric Lavender / Violet (#d0bcff) */
+  --primary: #d0bcff;
+  --primary-foreground: #340080;
+
+  /* Neon Cyan Plasma (#4cd7f6) */
+  --secondary: #4cd7f6;
+  --secondary-foreground: #003640;
+
+  /* Muted / Surface Levels */
+  --muted: #262a34;
+  --muted-foreground: #958ea0;
+  --accent: #262a34;
+  --accent-foreground: #dfe2ef;
+  --destructive: #ffb4ab;
+  --destructive-foreground: #690005;
+
+  /* Razor-sharp Borders with Subdued Contrast */
+  --border: rgba(149, 142, 160, 0.22);
+  --input: rgba(149, 142, 160, 0.25);
+  --ring: #d0bcff;
+
+  /* Sidebar Tokens */
+  --sidebar: #0a0e17;
+  --sidebar-foreground: #dfe2ef;
+  --sidebar-primary: #d0bcff;
+  --sidebar-primary-foreground: #340080;
+  --sidebar-accent: #1c1f29;
+  --sidebar-accent-foreground: #dfe2ef;
+  --sidebar-border: rgba(149, 142, 160, 0.18);
+  --sidebar-ring: #d0bcff;
+
+  /* Stitch 4 Obsidian Hierarchy Tokens */
+  --surface: #0f131c;
+  --surface-dim: #0f131c;
+  --surface-bright: #353943;
+  --surface-container-lowest: #0a0e17;
+  --surface-container-low: #181b25;
+  --surface-container: #1c1f29;
+  --surface-container-high: #262a34;
+  --surface-container-highest: #31353f;
+  --on-surface: #dfe2ef;
+  --on-surface-variant: #cbc3d7;
+  --outline: #958ea0;
+  --outline-variant: #494454;
+  --primary-container: #a078ff;
+  --on-primary-container: #340080;
+  --secondary-container: #03b5d3;
+  --on-secondary-container: #00424e;
 }
 
 @layer base {
@@ -151,16 +140,52 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
+}
+
+/* Pro Max Visual Styling Utilities */
+.nexora-glow-violet {
+  box-shadow: 0 0 20px rgba(160, 120, 255, 0.35);
+}
+
+.nexora-glow-cyan {
+  box-shadow: 0 0 16px rgba(76, 215, 246, 0.35);
+}
+
+.nexora-glass {
+  background: rgba(10, 14, 23, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(149, 142, 160, 0.18);
+}
+
+.nexora-card-interactive {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(149, 142, 160, 0.18);
+}
+
+.nexora-card-interactive:hover {
+  transform: translateY(-2px);
+  border-color: rgba(208, 188, 255, 0.4);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    0 0 16px rgba(208, 188, 255, 0.12);
+}
+
+.nexora-ambient-glow {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(160, 120, 255, 0.15), transparent 70%),
+    radial-gradient(circle at 100% 0%, rgba(76, 215, 246, 0.08), transparent 40%);
 }
 
 .nexora-text-shimmer {
   background-image:
     linear-gradient(
       90deg,
-      transparent calc(50% - var(--shimmer-spread)),
+      transparent calc(50% - var(--shimmer-spread, 20%)),
       var(--color-background),
-      transparent calc(50% + var(--shimmer-spread))
+      transparent calc(50% + var(--shimmer-spread, 20%))
     ),
     linear-gradient(var(--color-muted-foreground), var(--color-muted-foreground));
   background-position: 100% center;
