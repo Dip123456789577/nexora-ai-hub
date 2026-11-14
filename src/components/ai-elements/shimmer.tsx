@@ -26,14 +26,14 @@ const ShimmerComponent = ({
     {
       className: cn(
         "nexora-text-shimmer relative inline-block bg-clip-text text-transparent",
-        className
+        className,
       ),
       style: {
         "--shimmer-spread": `${dynamicSpread}px`,
         "--shimmer-duration": `${duration}s`,
       } as CSSProperties,
     },
-    children
+    children,
   );
 };
 

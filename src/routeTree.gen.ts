@@ -10,33 +10,341 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthLoginRouteImport } from './routes/auth/login'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
+import { Route as AuthenticatedAssistantChatRouteImport } from './routes/_authenticated/assistant/chat'
+import { Route as AuthenticatedAssistantImageGeneratorRouteImport } from './routes/_authenticated/assistant/image-generator'
+import { Route as AuthenticatedAssistantImageQaRouteImport } from './routes/_authenticated/assistant/image-qa'
+import { Route as AuthenticatedAssistantVoiceRouteImport } from './routes/_authenticated/assistant/voice'
+import { Route as AuthenticatedCareerResumeBuilderRouteImport } from './routes/_authenticated/career/resume-builder'
+import { Route as AuthenticatedDeveloperDebuggerRouteImport } from './routes/_authenticated/developer/debugger'
+import { Route as AuthenticatedDeveloperRegexRouteImport } from './routes/_authenticated/developer/regex'
+import { Route as AuthenticatedDeveloperSqlRouteImport } from './routes/_authenticated/developer/sql'
+import { Route as AuthenticatedHistoryIndexRouteImport } from './routes/_authenticated/history/index'
+import { Route as AuthenticatedProductivityTasksRouteImport } from './routes/_authenticated/productivity/tasks'
+import { Route as AuthenticatedResearchWebRouteImport } from './routes/_authenticated/research/web'
+import { Route as AuthenticatedSettingsIndexRouteImport } from './routes/_authenticated/settings/index'
+import { Route as AuthenticatedStudyExamAnswerRouteImport } from './routes/_authenticated/study/exam-answer'
+import { Route as AuthenticatedStudyFlashcardsRouteImport } from './routes/_authenticated/study/flashcards'
+import { Route as AuthenticatedStudyPlannerRouteImport } from './routes/_authenticated/study/planner'
+import { Route as AuthenticatedStudyQuizRouteImport } from './routes/_authenticated/study/quiz'
+import { Route as AuthenticatedStudySummarizerRouteImport } from './routes/_authenticated/study/summarizer'
+import { Route as AuthenticatedWritingGrammarRouteImport } from './routes/_authenticated/writing/grammar'
+import { Route as AuthenticatedWritingParaphraseRouteImport } from './routes/_authenticated/writing/paraphrase'
+import { Route as AuthenticatedWritingTranslateRouteImport } from './routes/_authenticated/writing/translate'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRoute = AuthenticatedRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthLoginRoute = AuthLoginRouteImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedAssistantChatRoute =
+  AuthenticatedAssistantChatRouteImport.update({
+    id: '/assistant/chat',
+    path: '/assistant/chat',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedAssistantImageGeneratorRoute =
+  AuthenticatedAssistantImageGeneratorRouteImport.update({
+    id: '/assistant/image-generator',
+    path: '/assistant/image-generator',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedAssistantImageQaRoute =
+  AuthenticatedAssistantImageQaRouteImport.update({
+    id: '/assistant/image-qa',
+    path: '/assistant/image-qa',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedAssistantVoiceRoute =
+  AuthenticatedAssistantVoiceRouteImport.update({
+    id: '/assistant/voice',
+    path: '/assistant/voice',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedCareerResumeBuilderRoute =
+  AuthenticatedCareerResumeBuilderRouteImport.update({
+    id: '/career/resume-builder',
+    path: '/career/resume-builder',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedDeveloperDebuggerRoute =
+  AuthenticatedDeveloperDebuggerRouteImport.update({
+    id: '/developer/debugger',
+    path: '/developer/debugger',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedDeveloperRegexRoute =
+  AuthenticatedDeveloperRegexRouteImport.update({
+    id: '/developer/regex',
+    path: '/developer/regex',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedDeveloperSqlRoute =
+  AuthenticatedDeveloperSqlRouteImport.update({
+    id: '/developer/sql',
+    path: '/developer/sql',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedHistoryIndexRoute =
+  AuthenticatedHistoryIndexRouteImport.update({
+    id: '/history/',
+    path: '/history/',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedProductivityTasksRoute =
+  AuthenticatedProductivityTasksRouteImport.update({
+    id: '/productivity/tasks',
+    path: '/productivity/tasks',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedResearchWebRoute =
+  AuthenticatedResearchWebRouteImport.update({
+    id: '/research/web',
+    path: '/research/web',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedSettingsIndexRoute =
+  AuthenticatedSettingsIndexRouteImport.update({
+    id: '/settings/',
+    path: '/settings/',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedStudyExamAnswerRoute =
+  AuthenticatedStudyExamAnswerRouteImport.update({
+    id: '/study/exam-answer',
+    path: '/study/exam-answer',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedStudyFlashcardsRoute =
+  AuthenticatedStudyFlashcardsRouteImport.update({
+    id: '/study/flashcards',
+    path: '/study/flashcards',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedStudyPlannerRoute =
+  AuthenticatedStudyPlannerRouteImport.update({
+    id: '/study/planner',
+    path: '/study/planner',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedStudyQuizRoute = AuthenticatedStudyQuizRouteImport.update({
+  id: '/study/quiz',
+  path: '/study/quiz',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedStudySummarizerRoute =
+  AuthenticatedStudySummarizerRouteImport.update({
+    id: '/study/summarizer',
+    path: '/study/summarizer',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedWritingGrammarRoute =
+  AuthenticatedWritingGrammarRouteImport.update({
+    id: '/writing/grammar',
+    path: '/writing/grammar',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedWritingParaphraseRoute =
+  AuthenticatedWritingParaphraseRouteImport.update({
+    id: '/writing/paraphrase',
+    path: '/writing/paraphrase',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedWritingTranslateRoute =
+  AuthenticatedWritingTranslateRouteImport.update({
+    id: '/writing/translate',
+    path: '/writing/translate',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/assistant/chat': typeof AuthenticatedAssistantChatRoute
+  '/assistant/image-generator': typeof AuthenticatedAssistantImageGeneratorRoute
+  '/assistant/image-qa': typeof AuthenticatedAssistantImageQaRoute
+  '/assistant/voice': typeof AuthenticatedAssistantVoiceRoute
+  '/career/resume-builder': typeof AuthenticatedCareerResumeBuilderRoute
+  '/developer/debugger': typeof AuthenticatedDeveloperDebuggerRoute
+  '/developer/regex': typeof AuthenticatedDeveloperRegexRoute
+  '/developer/sql': typeof AuthenticatedDeveloperSqlRoute
+  '/productivity/tasks': typeof AuthenticatedProductivityTasksRoute
+  '/research/web': typeof AuthenticatedResearchWebRoute
+  '/study/exam-answer': typeof AuthenticatedStudyExamAnswerRoute
+  '/study/flashcards': typeof AuthenticatedStudyFlashcardsRoute
+  '/study/planner': typeof AuthenticatedStudyPlannerRoute
+  '/study/quiz': typeof AuthenticatedStudyQuizRoute
+  '/study/summarizer': typeof AuthenticatedStudySummarizerRoute
+  '/writing/grammar': typeof AuthenticatedWritingGrammarRoute
+  '/writing/paraphrase': typeof AuthenticatedWritingParaphraseRoute
+  '/writing/translate': typeof AuthenticatedWritingTranslateRoute
+  '/admin/': typeof AuthenticatedAdminIndexRoute
+  '/history/': typeof AuthenticatedHistoryIndexRoute
+  '/settings/': typeof AuthenticatedSettingsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/assistant/chat': typeof AuthenticatedAssistantChatRoute
+  '/assistant/image-generator': typeof AuthenticatedAssistantImageGeneratorRoute
+  '/assistant/image-qa': typeof AuthenticatedAssistantImageQaRoute
+  '/assistant/voice': typeof AuthenticatedAssistantVoiceRoute
+  '/career/resume-builder': typeof AuthenticatedCareerResumeBuilderRoute
+  '/developer/debugger': typeof AuthenticatedDeveloperDebuggerRoute
+  '/developer/regex': typeof AuthenticatedDeveloperRegexRoute
+  '/developer/sql': typeof AuthenticatedDeveloperSqlRoute
+  '/productivity/tasks': typeof AuthenticatedProductivityTasksRoute
+  '/research/web': typeof AuthenticatedResearchWebRoute
+  '/study/exam-answer': typeof AuthenticatedStudyExamAnswerRoute
+  '/study/flashcards': typeof AuthenticatedStudyFlashcardsRoute
+  '/study/planner': typeof AuthenticatedStudyPlannerRoute
+  '/study/quiz': typeof AuthenticatedStudyQuizRoute
+  '/study/summarizer': typeof AuthenticatedStudySummarizerRoute
+  '/writing/grammar': typeof AuthenticatedWritingGrammarRoute
+  '/writing/paraphrase': typeof AuthenticatedWritingParaphraseRoute
+  '/writing/translate': typeof AuthenticatedWritingTranslateRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
+  '/history': typeof AuthenticatedHistoryIndexRoute
+  '/settings': typeof AuthenticatedSettingsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteWithChildren
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/_authenticated/assistant/chat': typeof AuthenticatedAssistantChatRoute
+  '/_authenticated/assistant/image-generator': typeof AuthenticatedAssistantImageGeneratorRoute
+  '/_authenticated/assistant/image-qa': typeof AuthenticatedAssistantImageQaRoute
+  '/_authenticated/assistant/voice': typeof AuthenticatedAssistantVoiceRoute
+  '/_authenticated/career/resume-builder': typeof AuthenticatedCareerResumeBuilderRoute
+  '/_authenticated/developer/debugger': typeof AuthenticatedDeveloperDebuggerRoute
+  '/_authenticated/developer/regex': typeof AuthenticatedDeveloperRegexRoute
+  '/_authenticated/developer/sql': typeof AuthenticatedDeveloperSqlRoute
+  '/_authenticated/productivity/tasks': typeof AuthenticatedProductivityTasksRoute
+  '/_authenticated/research/web': typeof AuthenticatedResearchWebRoute
+  '/_authenticated/study/exam-answer': typeof AuthenticatedStudyExamAnswerRoute
+  '/_authenticated/study/flashcards': typeof AuthenticatedStudyFlashcardsRoute
+  '/_authenticated/study/planner': typeof AuthenticatedStudyPlannerRoute
+  '/_authenticated/study/quiz': typeof AuthenticatedStudyQuizRoute
+  '/_authenticated/study/summarizer': typeof AuthenticatedStudySummarizerRoute
+  '/_authenticated/writing/grammar': typeof AuthenticatedWritingGrammarRoute
+  '/_authenticated/writing/paraphrase': typeof AuthenticatedWritingParaphraseRoute
+  '/_authenticated/writing/translate': typeof AuthenticatedWritingTranslateRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/_authenticated/history/': typeof AuthenticatedHistoryIndexRoute
+  '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/auth/login'
+    | '/assistant/chat'
+    | '/assistant/image-generator'
+    | '/assistant/image-qa'
+    | '/assistant/voice'
+    | '/career/resume-builder'
+    | '/developer/debugger'
+    | '/developer/regex'
+    | '/developer/sql'
+    | '/productivity/tasks'
+    | '/research/web'
+    | '/study/exam-answer'
+    | '/study/flashcards'
+    | '/study/planner'
+    | '/study/quiz'
+    | '/study/summarizer'
+    | '/writing/grammar'
+    | '/writing/paraphrase'
+    | '/writing/translate'
+    | '/admin/'
+    | '/history/'
+    | '/settings/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/auth/login'
+    | '/assistant/chat'
+    | '/assistant/image-generator'
+    | '/assistant/image-qa'
+    | '/assistant/voice'
+    | '/career/resume-builder'
+    | '/developer/debugger'
+    | '/developer/regex'
+    | '/developer/sql'
+    | '/productivity/tasks'
+    | '/research/web'
+    | '/study/exam-answer'
+    | '/study/flashcards'
+    | '/study/planner'
+    | '/study/quiz'
+    | '/study/summarizer'
+    | '/writing/grammar'
+    | '/writing/paraphrase'
+    | '/writing/translate'
+    | '/admin'
+    | '/history'
+    | '/settings'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/_authenticated/dashboard'
+    | '/auth/login'
+    | '/_authenticated/assistant/chat'
+    | '/_authenticated/assistant/image-generator'
+    | '/_authenticated/assistant/image-qa'
+    | '/_authenticated/assistant/voice'
+    | '/_authenticated/career/resume-builder'
+    | '/_authenticated/developer/debugger'
+    | '/_authenticated/developer/regex'
+    | '/_authenticated/developer/sql'
+    | '/_authenticated/productivity/tasks'
+    | '/_authenticated/research/web'
+    | '/_authenticated/study/exam-answer'
+    | '/_authenticated/study/flashcards'
+    | '/_authenticated/study/planner'
+    | '/_authenticated/study/quiz'
+    | '/_authenticated/study/summarizer'
+    | '/_authenticated/writing/grammar'
+    | '/_authenticated/writing/paraphrase'
+    | '/_authenticated/writing/translate'
+    | '/_authenticated/admin/'
+    | '/_authenticated/history/'
+    | '/_authenticated/settings/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
+  AuthLoginRoute: typeof AuthLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +356,236 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/auth/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/assistant/chat': {
+      id: '/_authenticated/assistant/chat'
+      path: '/assistant/chat'
+      fullPath: '/assistant/chat'
+      preLoaderRoute: typeof AuthenticatedAssistantChatRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/assistant/image-generator': {
+      id: '/_authenticated/assistant/image-generator'
+      path: '/assistant/image-generator'
+      fullPath: '/assistant/image-generator'
+      preLoaderRoute: typeof AuthenticatedAssistantImageGeneratorRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/assistant/image-qa': {
+      id: '/_authenticated/assistant/image-qa'
+      path: '/assistant/image-qa'
+      fullPath: '/assistant/image-qa'
+      preLoaderRoute: typeof AuthenticatedAssistantImageQaRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/assistant/voice': {
+      id: '/_authenticated/assistant/voice'
+      path: '/assistant/voice'
+      fullPath: '/assistant/voice'
+      preLoaderRoute: typeof AuthenticatedAssistantVoiceRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/career/resume-builder': {
+      id: '/_authenticated/career/resume-builder'
+      path: '/career/resume-builder'
+      fullPath: '/career/resume-builder'
+      preLoaderRoute: typeof AuthenticatedCareerResumeBuilderRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/developer/debugger': {
+      id: '/_authenticated/developer/debugger'
+      path: '/developer/debugger'
+      fullPath: '/developer/debugger'
+      preLoaderRoute: typeof AuthenticatedDeveloperDebuggerRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/developer/regex': {
+      id: '/_authenticated/developer/regex'
+      path: '/developer/regex'
+      fullPath: '/developer/regex'
+      preLoaderRoute: typeof AuthenticatedDeveloperRegexRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/developer/sql': {
+      id: '/_authenticated/developer/sql'
+      path: '/developer/sql'
+      fullPath: '/developer/sql'
+      preLoaderRoute: typeof AuthenticatedDeveloperSqlRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/history/': {
+      id: '/_authenticated/history/'
+      path: '/history'
+      fullPath: '/history/'
+      preLoaderRoute: typeof AuthenticatedHistoryIndexRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/productivity/tasks': {
+      id: '/_authenticated/productivity/tasks'
+      path: '/productivity/tasks'
+      fullPath: '/productivity/tasks'
+      preLoaderRoute: typeof AuthenticatedProductivityTasksRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/research/web': {
+      id: '/_authenticated/research/web'
+      path: '/research/web'
+      fullPath: '/research/web'
+      preLoaderRoute: typeof AuthenticatedResearchWebRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/settings/': {
+      id: '/_authenticated/settings/'
+      path: '/settings'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof AuthenticatedSettingsIndexRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/study/exam-answer': {
+      id: '/_authenticated/study/exam-answer'
+      path: '/study/exam-answer'
+      fullPath: '/study/exam-answer'
+      preLoaderRoute: typeof AuthenticatedStudyExamAnswerRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/study/flashcards': {
+      id: '/_authenticated/study/flashcards'
+      path: '/study/flashcards'
+      fullPath: '/study/flashcards'
+      preLoaderRoute: typeof AuthenticatedStudyFlashcardsRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/study/planner': {
+      id: '/_authenticated/study/planner'
+      path: '/study/planner'
+      fullPath: '/study/planner'
+      preLoaderRoute: typeof AuthenticatedStudyPlannerRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/study/quiz': {
+      id: '/_authenticated/study/quiz'
+      path: '/study/quiz'
+      fullPath: '/study/quiz'
+      preLoaderRoute: typeof AuthenticatedStudyQuizRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/study/summarizer': {
+      id: '/_authenticated/study/summarizer'
+      path: '/study/summarizer'
+      fullPath: '/study/summarizer'
+      preLoaderRoute: typeof AuthenticatedStudySummarizerRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/writing/grammar': {
+      id: '/_authenticated/writing/grammar'
+      path: '/writing/grammar'
+      fullPath: '/writing/grammar'
+      preLoaderRoute: typeof AuthenticatedWritingGrammarRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/writing/paraphrase': {
+      id: '/_authenticated/writing/paraphrase'
+      path: '/writing/paraphrase'
+      fullPath: '/writing/paraphrase'
+      preLoaderRoute: typeof AuthenticatedWritingParaphraseRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/writing/translate': {
+      id: '/_authenticated/writing/translate'
+      path: '/writing/translate'
+      fullPath: '/writing/translate'
+      preLoaderRoute: typeof AuthenticatedWritingTranslateRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
   }
 }
 
+interface AuthenticatedRouteChildren {
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedAssistantChatRoute: typeof AuthenticatedAssistantChatRoute
+  AuthenticatedAssistantImageGeneratorRoute: typeof AuthenticatedAssistantImageGeneratorRoute
+  AuthenticatedAssistantImageQaRoute: typeof AuthenticatedAssistantImageQaRoute
+  AuthenticatedAssistantVoiceRoute: typeof AuthenticatedAssistantVoiceRoute
+  AuthenticatedCareerResumeBuilderRoute: typeof AuthenticatedCareerResumeBuilderRoute
+  AuthenticatedDeveloperDebuggerRoute: typeof AuthenticatedDeveloperDebuggerRoute
+  AuthenticatedDeveloperRegexRoute: typeof AuthenticatedDeveloperRegexRoute
+  AuthenticatedDeveloperSqlRoute: typeof AuthenticatedDeveloperSqlRoute
+  AuthenticatedProductivityTasksRoute: typeof AuthenticatedProductivityTasksRoute
+  AuthenticatedResearchWebRoute: typeof AuthenticatedResearchWebRoute
+  AuthenticatedStudyExamAnswerRoute: typeof AuthenticatedStudyExamAnswerRoute
+  AuthenticatedStudyFlashcardsRoute: typeof AuthenticatedStudyFlashcardsRoute
+  AuthenticatedStudyPlannerRoute: typeof AuthenticatedStudyPlannerRoute
+  AuthenticatedStudyQuizRoute: typeof AuthenticatedStudyQuizRoute
+  AuthenticatedStudySummarizerRoute: typeof AuthenticatedStudySummarizerRoute
+  AuthenticatedWritingGrammarRoute: typeof AuthenticatedWritingGrammarRoute
+  AuthenticatedWritingParaphraseRoute: typeof AuthenticatedWritingParaphraseRoute
+  AuthenticatedWritingTranslateRoute: typeof AuthenticatedWritingTranslateRoute
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
+  AuthenticatedHistoryIndexRoute: typeof AuthenticatedHistoryIndexRoute
+  AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
+}
+
+const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedAssistantChatRoute: AuthenticatedAssistantChatRoute,
+  AuthenticatedAssistantImageGeneratorRoute:
+    AuthenticatedAssistantImageGeneratorRoute,
+  AuthenticatedAssistantImageQaRoute: AuthenticatedAssistantImageQaRoute,
+  AuthenticatedAssistantVoiceRoute: AuthenticatedAssistantVoiceRoute,
+  AuthenticatedCareerResumeBuilderRoute: AuthenticatedCareerResumeBuilderRoute,
+  AuthenticatedDeveloperDebuggerRoute: AuthenticatedDeveloperDebuggerRoute,
+  AuthenticatedDeveloperRegexRoute: AuthenticatedDeveloperRegexRoute,
+  AuthenticatedDeveloperSqlRoute: AuthenticatedDeveloperSqlRoute,
+  AuthenticatedProductivityTasksRoute: AuthenticatedProductivityTasksRoute,
+  AuthenticatedResearchWebRoute: AuthenticatedResearchWebRoute,
+  AuthenticatedStudyExamAnswerRoute: AuthenticatedStudyExamAnswerRoute,
+  AuthenticatedStudyFlashcardsRoute: AuthenticatedStudyFlashcardsRoute,
+  AuthenticatedStudyPlannerRoute: AuthenticatedStudyPlannerRoute,
+  AuthenticatedStudyQuizRoute: AuthenticatedStudyQuizRoute,
+  AuthenticatedStudySummarizerRoute: AuthenticatedStudySummarizerRoute,
+  AuthenticatedWritingGrammarRoute: AuthenticatedWritingGrammarRoute,
+  AuthenticatedWritingParaphraseRoute: AuthenticatedWritingParaphraseRoute,
+  AuthenticatedWritingTranslateRoute: AuthenticatedWritingTranslateRoute,
+  AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
+  AuthenticatedHistoryIndexRoute: AuthenticatedHistoryIndexRoute,
+  AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
+}
+
+const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
+  AuthenticatedRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRoute: AuthenticatedRouteWithChildren,
+  AuthLoginRoute: AuthLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

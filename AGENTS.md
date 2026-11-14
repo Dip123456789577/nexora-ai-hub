@@ -1,4 +1,5 @@
 <!-- LOVABLE:BEGIN -->
+
 > [!IMPORTANT]
 > This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
 > published git history — force pushing, or rebasing/amending/squashing commits
@@ -27,12 +28,14 @@ use the editor.
   `LOVABLE_API_KEY`. When Lovable does not provide one, users can bring their
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
+
 <!-- LOVABLE:END -->
 
 ## Project architecture
+
 - Keep AI provider calls and credentials in TanStack Start server boundaries; use authenticated server functions for private tool actions and a dedicated server route for streaming chat so browser code never receives provider secrets.
 
-
 ## NEXORA application structure
+
 - Keep signed-in workspace pages under the integration-managed `_authenticated` route group and keep AI calls behind authenticated TanStack server boundaries, because the workspace and saved results are private.
 - Implement decorative text shimmer with CSS keyframes rather than Motion components, avoiding dynamic animation-component typing issues during the server-rendered build.

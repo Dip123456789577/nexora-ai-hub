@@ -80,21 +80,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NEXORA AI" },
-      { name: "description", content: "Your AI workspace for learning and creating." },
+      { title: "NEXORA AI — One Intelligence. Infinite Possibilities." },
+      {
+        name: "description",
+        content:
+          "NEXORA AI Pro Max: Enterprise intelligence workspace featuring University Exam Solvers, Multimodal Vision, Code Kernels, and Research Synthesizers.",
+      },
       { name: "author", content: "NEXORA AI" },
-      { property: "og:title", content: "NEXORA AI" },
-      { property: "og:description", content: "Your AI workspace for learning and creating." },
+      { property: "og:title", content: "NEXORA AI — One Intelligence. Infinite Possibilities." },
+      {
+        property: "og:description",
+        content:
+          "Enterprise AI workspace for deep study, university exams, polyglot writing, and full-stack software development.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@NexoraAI" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
   }),
   shellComponent: RootShell,

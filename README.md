@@ -1,96 +1,108 @@
-# Nexora AI Hub
+# NEXORA AI PRO MAX — One Intelligence. Infinite Possibilities.
 
-2. API connection plan
+NEXORA AI is an enterprise all-in-one AI platform engineered with production-ready server boundaries, structured academic scoring rubrics, multimodal vision OCR, developer tools, and cloud persistence.
 
-This is the important part. These are the services you'll need to configure.
+---
 
-Provider
+## 1. System Architecture
 
-What it powers
+- **Frontend Framework:** TanStack Start (SSR + Server Functions) with React 19, TypeScript, and Tailwind CSS v4.
+- **Design System:** Synthetic Obsidian dark palette (`#0f131c` background, cyan `#4cd7f6` highlights, violet `#d0bcff` accents, glassmorphic cards).
+- **Backend Boundaries:** All AI calls and provider secrets execute strictly within server functions (`createServerFn`) or dedicated server handlers in `src/server.ts`. Client bundles never receive raw credentials.
+- **Database & Auth:** Supabase PostgreSQL with Row Level Security (RLS), supporting profiles, multi-turn conversation threads, messages, and persistent `ai_generations`.
+- **Primary AI Provider:** Google Gemini API (`gemini-2.5-flash`, `gemini-1.5-pro`, `gemini-1.5-flash`) with structured output validation and multimodal vision.
+- **Optional Secondary Providers:** OpenAI (`gpt-4o`), Anthropic (`claude-3-5-sonnet`), Tavily Search, and Judge0 Code Sandbox.
 
-Google Gemini
+---
 
-Chat, exam answers, coding, writing, image understanding
+## 2. Flagship Studios & Features
 
-Supabase
+### A. Study Intelligence
 
-Login, database, history, storage
+- **Exam Answer Writer:** University Model Solver Rubric Engine v4.2. Allows selecting 2, 3, 5, 8, 10, 15, or 20 marks, academic level, difficulty, subject, and format. Generates structured answers with definitions, numbered arguments, examples, diagram descriptions, and conclusions. Supports Markdown copy, PDF export, and `Ctrl+Enter` shortcut.
+- **Interactive Quiz Generator:** Generates MCQs and True/False assessments with immediate scoring and pedagogical explanations.
+- **Flashcard Engine:** Active recall flashcards with 3D flip card animations, shuffle, and mastery tracking.
+- **AI Summarizer:** High-density executive summaries, key takeaways, and definition glossaries.
 
-OpenAI
+### B. AI Assistant & Vision
 
-Optional alternative AI models
+- **Cognitive Multi-turn Chat:** Thread management, model selection, code highlighting, and streaming response support.
+- **Image Q&A & Vision OCR:** Drag-and-drop image upload (PNG, JPG, WebP) with Gemini Vision analysis for solving photographed questions, diagram comprehension, and text extraction.
+- **Image Diffusion Studio:** Text-to-image studio with prompt enhancement and aspect ratio controls.
 
-Anthropic
+### C. Developer Hub
 
-Optional Claude models
+- **Code Helper & Debugger:** Pinpoints root-cause bugs, provides corrected code with defensive guards, and analyzes Big-O time and space complexity.
+- **SQL Plan Studio:** Generates CTEs, window functions, and cross-dialect conversions across PostgreSQL, MySQL, SQLite, and Oracle.
 
-Image generation API
+### D. Writing & Career Studios
 
-Generate and edit images
+- **Polyglot Translator:** Context-aware translations preserving code blocks across 30+ languages.
+- **Stylistic Paraphraser:** Academic, Formal, Simple, Professional, and Creative rewrite modes.
+- **ATS Resume Builder:** Quantified Google XYZ metric resume builder tailored against target job descriptions.
+- **Deep Web Research Lab:** Evidence-grounded synthesis with IEEE, APA, MLA, and Chicago citation formatting.
 
-Web search API
+### E. Workspace Infrastructure
 
-Live research and citations
+- **Mission Control Dashboard:** Tool matrix, system status, fast workflows, and provider latency indicators.
+- **Cloud History:** Full search, filtering, and JSON export of past generations.
+- **Settings & APIs:** Live provider health checks and default model preferences.
+- **Admin Panel:** Telemetry, audit metrics, and API configuration inspection.
 
-Speech API
+---
 
-Voice features                                                                                                                                                                                                                                                                                                                                Important: Each service needs its own credentials. Gemini alone cannot automatically provide every capability, such as image generation, isolated code execution or live web search.
+## 3. Getting Started
 
-3. What you should do first in Lovable
+### Prerequisites
 
-Open Lovable.
+- Node.js 20+ (Node v22 recommended)
+- npm or bun
 
-Start a new project named NEXORA AI.
+### Installation
 
-Attach the three Stitch design references, preferably the extracted screenshots and DESIGN.md.
+```bash
+git clone <repository-url>
+cd nexora-ai-hub
+npm install
+```
 
-Paste the master prompt.
+### Environment Configuration
 
-Connect Supabase when Lovable requests it.
+Copy `.env.example` to `.env`:
 
-Implement the project phase by phase and test each API integration.
+```bash
+cp .env.example .env
+```
 
-4. One important suggestion
+Populate your Google Gemini API key:
 
-Don't try to launch 30+ AI tools with unconfigured APIs. First get these five working perfectly:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
 
-Your first development milestone
+_(Get a free key from [Google AI Studio](https://aistudio.google.com/app/apikey))_
 
-Priority 1
+### Development Server
 
-AI Assistant — Gemini API
-
-Exam Answer Writer — Gemini API
-
-Image Q&A — Gemini Vision
-
-Quiz Generator — Gemini API
-
-AI Summarizer — Gemini API
-
-Then add authentication, persistent history and the remaining tools.
-
-One question before we start the actual implementation: Do you want to use Google Gemini as your main AI provider, with other AI providers as optional additions?
-
-That will help me prepare the exact API setup and backend architecture without wasting your time or API credits.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/3ae6f8b7-8894-4961-b947-3f43953bc661).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
 npm run dev
 ```
+
+### Production Build & Preview
+
+```bash
+npm run build
+npm run preview
+```
+
+### Running Test Suite
+
+```bash
+npm run test
+```
+
+---
+
+## 4. API Configuration & Transparent Error Reporting
+
+If an API key is not configured, NEXORA AI displays a prominent configuration banner with direct links to the relevant developer portal instead of crashing or generating fake data.

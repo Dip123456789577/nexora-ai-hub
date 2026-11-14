@@ -165,7 +165,9 @@
     linear-gradient(var(--color-muted-foreground), var(--color-muted-foreground));
   background-position: 100% center;
   background-repeat: no-repeat, padding-box;
-  background-size: 250% 100%, auto;
+  background-size:
+    250% 100%,
+    auto;
   animation: nexora-text-shimmer var(--shimmer-duration, 2s) linear infinite;
 }
 
